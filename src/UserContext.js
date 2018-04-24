@@ -1,5 +1,4 @@
 import React from "react";
-
-// Unknown User is a default value
-const UserContext = React.createContext("Unknown User");
+// hold user object with id, name, isAdmin, logout
+const UserContext = React.createContext({});
 export default UserContext;

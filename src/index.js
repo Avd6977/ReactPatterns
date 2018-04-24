@@ -8,8 +8,17 @@ const styles = {
   textAlign: "center"
 };
 
+const newUser = {
+  name: "Alex",
+  id: 1,
+  isAdmin: false,
+  logout() {
+    console.log("Logged out");
+  }
+};
+
 const App = () => (
-  <UserContext.Provider value={"Alex"}>
+  <UserContext.Provider value={newUser}>
     <div style={styles}>
       <Hello name="CodeSandbox" />
       <h2>Start editing to see some magic happen {"\u2728"}</h2>

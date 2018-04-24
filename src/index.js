@@ -3,27 +3,31 @@ import { render } from "react-dom";
 import Hello from "./Hello";
 import UserContext from "./UserContext";
 
-const styles = {
-  fontFamily: "sans-serif",
-  textAlign: "center"
-};
+class App extends React.Component {
+  constructor(props) {
+    super(props);
 
-const newUser = {
-  name: "Alex",
-  id: 1,
-  isAdmin: false,
-  logout() {
-    console.log("Logged out");
+    this.state = {
+      user: {
+        name: "Alex",
+        id: 1,
+        isAdmin: false,
+        logout: this.logout
+      }
+    };
   }
-};
 
-const App = () => (
-  <UserContext.Provider value={newUser}>
-    <div style={styles}>
+  logout = () => {
+    const user = { ...this.state.user, name: "" };
+    this.setState({ user });
+  };
+
+  render = () => (
+    <UserContext.Provider value={this.state.user}>
       <Hello name="CodeSandbox" />
       <h2>Start editing to see some magic happen {"\u2728"}</h2>
-    </div>
-  </UserContext.Provider>
-);
+    </UserContext.Provider>
+  );
+}
 
 render(<App />, document.getElementById("root"));

@@ -9,14 +9,8 @@ export default ({ name }) => (
       <UserContext.Consumer>
         {user => (
           <div>
-            {user.name} {user.isAdmin ? "is an admin" : "is not an admin"}
-            <button
-              style={{ margin: "1em" }}
-              onClick={e => {
-                e.preventDefault();
-                user.logout();
-              }}
-            >
+            {user.name} is {user.isAdmin ? "" : "not"} an admin
+            <button style={{ margin: "1em" }} onClick={user.logout}>
               Logout
             </button>
           </div>
